@@ -1,3 +1,5 @@
+scriptencoding utf-8
+
 " Split window below/right when creating horizontal/vertical windows
 set splitbelow splitright
 
@@ -50,8 +52,14 @@ set showbreak=↪
 " Minimum lines to keep above and below cursor when scrolling
 set scrolloff=3
 
+" Use mouse to select and resize windows, etc.
+set mouse=nic  " Enable mouse in several mode
+set mousemodel=popup  " Set the behaviour of mouse
+
 " Disable showing current mode on command line since statusline plugins can show it.
 set noshowmode
+
+set fileformats=unix,dos  " Fileformats to use for new files
 
 " Ask for confirmation when handling unsaved or read-only files
 set confirm
@@ -87,7 +95,9 @@ set nostartofline
 " Enable true color support. Do not set this option if your terminal does not
 " support true colors! For a comprehensive list of terminals supporting true
 " colors, see https://github.com/termstandard/colors and https://gist.github.com/XVilka/8346728.
-set termguicolors
+if (has("termguicolors"))
+  set termguicolors
+endif
 
 " Set up cursor color and shape in various mode, ref:
 " https://github.com/neovim/neovim/wiki/FAQ#how-to-change-cursor-color-in-the-terminal
