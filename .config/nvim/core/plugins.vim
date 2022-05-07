@@ -8,6 +8,8 @@ Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
 Plug 'jdhao/better-escape.vim'
+Plug 'preservim/nerdtree'
+Plug 'ryanoasis/vim-devicons'
 
 call plug#end()
 
@@ -102,6 +104,7 @@ nnoremap <silent> <leader>fh :<C-U>Leaderf help --popup<CR>
 
 " Search tags in current buffer
 nnoremap <silent> <leader>ft :<C-U>Leaderf bufTag --popup<CR>
+nnoremap <silent> <leader>; :<C-U>Leaderf bufTag --popup<CR>
 
 " Switch buffers
 nnoremap <silent> <leader>fb :<C-U>Leaderf buffer --popup<CR>
@@ -129,9 +132,25 @@ nnoremap <silent> <leader>fr :<C-U>Leaderf mru --popup --absolute-path<CR>
 " -------------------------------------------------------------------------------------------------
 " Better Escape settings
 " -------------------------------------------------------------------------------------------------
-"
+
 " use jj to escape insert mode.
 let g:better_escape_shortcut = 'jj'
 
 let g:better_escape_interval = 200
 
+
+" -------------------------------------------------------------------------------------------------
+" NerdTree settings
+" -------------------------------------------------------------------------------------------------
+
+nnoremap <leader>n :NERDTreeFocus<CR>
+nnoremap <C-n> :NERDTree<CR>
+nnoremap <C-t> :NERDTreeToggle<CR>
+" nnoremap <C-f> :NERDTreeFind<CR>
+
+" Start NERDTree. If a file is specified, move the cursor to its window.
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * NERDTree | if argc() > 0 || exists("s:std_in") | wincmd p | endif
+
+" Exit Vim if NERDTree is the only window remaining in the only tab.
+autocmd BufEnter * if tabpagenr('$') == 1 && winnr('$') == 1 && exists('b:NERDTree') && b:NERDTree.isTabTree() | quit | endif
