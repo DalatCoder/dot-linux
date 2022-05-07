@@ -113,7 +113,7 @@ nnoremap <silent> <leader>fr :<C-U>Leaderf mru --popup --absolute-path<CR>
 
 " Change keybinding in LeaderF prompt mode, use ctrl-n and ctrl-p to navigate
 " items.
-let g:Lf_CommandMap = {'<C-J>': ['<C-N>'], '<C-K>': ['<C-P>']}
+" let g:Lf_CommandMap = {'<C-J>': ['<Up>'], '<C-K>': ['<Down>']}
 
 " should use `Leaderf gtags --update` first
 " let g:Lf_GtagsAutoGenerate = 0
