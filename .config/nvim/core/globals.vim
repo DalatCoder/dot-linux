@@ -7,6 +7,29 @@ let g:logging_level = 'info'
 "}}
 
 
+"{{ Builtin variables
+" Disable perl provider
+let g:loaded_perl_provider = 0
+
+" Disable ruby provider
+let g:loaded_ruby_provider = 0
+
+" Path to Python 3 interpreter (must be an absolute path), make startup
+" faster. See https://neovim.io/doc/user/provider.html.
+if executable('python')
+   if g:is_win
+    let g:python3_host_prog=substitute(exepath('python'), '.exe$', '', 'g')
+  elseif g:is_linux || g:is_mac
+    let g:python3_host_prog=exepath('python')
+  endif
+else
+  echoerr 'Python 3 executable not found! You must install Python 3 and set its PATH correctly!'
+endif
+
+" NodeJS provider 
+let g:node_host_prog = '/home/dalatcoder/.nvm/versions/node/v14.15.0/bin/neovim-node-host'
+
+
 " Custom mapping <leader> (see `:h mapleader` for more info)
 let g:mapleader = ','
 
