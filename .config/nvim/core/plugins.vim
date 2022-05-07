@@ -7,6 +7,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
 Plug 'Yggdroot/LeaderF', { 'do': ':LeaderfInstallCExtension' }
+Plug 'jdhao/better-escape.vim'
 
 call plug#end()
 
@@ -123,4 +124,14 @@ nnoremap <silent> <leader>fr :<C-U>Leaderf mru --popup --absolute-path<CR>
 " noremap <leader>fo :<C-U><C-R>=printf("Leaderf! gtags --recall %s", "")<CR><CR>
 " noremap <leader>fn :<C-U><C-R>=printf("Leaderf gtags --next %s", "")<CR><CR>
 " noremap <leader>fp :<C-U><C-R>=printf("Leaderf gtags --previous %s", "")<CR><CR>
+
+
+" -------------------------------------------------------------------------------------------------
+" Better Escape settings
+" -------------------------------------------------------------------------------------------------
+"
+" use jj to escape insert mode.
+let g:better_escape_shortcut = 'jj'
+
+let g:better_escape_interval = 200
 
