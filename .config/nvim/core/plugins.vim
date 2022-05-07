@@ -11,6 +11,7 @@ Plug 'jdhao/better-escape.vim'
 Plug 'preservim/nerdtree'
 Plug 'ryanoasis/vim-devicons'
 Plug 'liuchengxu/vista.vim'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
